@@ -17,28 +17,28 @@
   <canvas></canvas>
   <script>
     (function () {
-      // 创建 Canvas
+      // create Canvas
       let canvas = document.querySelector('canvas');
       var ctx = canvas.getContext('2d');
       canvas.width = 1920; //window.innerWidth;
       canvas.height = 1080; //window.innerHeight;
 
-      // 加载字体
-      (new FontFace('SAOUI', 'url(./font/SAOUI.otf)')).load().then((font) => {
+      // load font
+      (new FontFace('SAO', 'url(./font/SAO.otf)')).load().then((font) => {
         document.fonts.add(font);
       });
 
-      // 加载背景
+      // load font
       let bg = new Image();
 			bg.src = "./img/[Kamigami]-Sword-Art-Online---11-[BDrip-1920x1080-x264-FLAC].mkv_20190123_235300.jpg";
 
-      // 加载图标
+      // load font
       var flashIcon = new Image();
       flashIcon.src = './img/flash.svg';
       var addIcon = new Image();
       addIcon.src = './img/add_box.svg';
 
-      // 页面加载完毕后执行
+      // Executed after the page is loaded
       window.onload = function () {
         ctx.fillStyle = ctx.createPattern(bg, "no-repeat"); // '#03A9F4';
 			  ctx.fillRect(0, 0, canvas.width, canvas.width/bg.width * bg.height);
@@ -60,7 +60,7 @@
         let x = cW - (bgW+40); // left X
         const y = 10; // top Y
 
-        // for 放大
+        // for enlarge
         x -= 640;
         ctx.scale(1.5, 1.5);
 
@@ -69,7 +69,7 @@
         bgColor.addColorStop(0.3, 'rgba(255, 255, 255, 0.40)');
         bgColor.addColorStop(1, 'rgba(255, 255, 255, 0.06)');
 
-        // 特效指示器
+        // Effects indicator
         (function () {
           const seW = 27;
           const seH = bgH1;
@@ -90,7 +90,7 @@
           ctx.drawImage(addIcon, seX-iconWH/2, seY+(seH-iconWH)/2, iconWH, iconWH)
         })();
 
-        // 血量指示器
+        // blood indicator
         (function createIndicator() {
           // bg
           ctx.beginPath();
@@ -109,7 +109,7 @@
           const userNameW = 74;
           putText('Kirito', x+userNameW/2, y+bgH1/2+2, 26);
 
-          // 指示器
+          // indicator
           const indiH1 = 20;
           const indiH2 = 11;
           const indiW1 = 192;
@@ -181,7 +181,7 @@
           ctx.strokeStyle = '#565653';
           ctx.stroke();
 
-          // 状态标识
+          // Status ID
           let statX = indiX+indiW+17;
           let statY = y + 10;
           let statW = 34;
@@ -199,7 +199,7 @@
           ctx.drawImage(flashIcon, statX, statY+4, 17, 20);
         })();
 
-        // 资料块
+        // data block
         (function createInfoBlock() {
           const infoW = bgW2-15;
           const infoW1 = infoW * 2/3;
